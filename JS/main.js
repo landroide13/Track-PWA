@@ -3,14 +3,17 @@
 const Lat = document.getElementById('Lat');
 const Lon = document.getElementById('Lon');
 
+const showPosition = (position) => {
+    Lat.innerHTML = position.coords.latitude;
+    Lon.innerHTML = position.coords.longitude;
+}
 
 const getLocation = () => {
-    navigator.geolocation.getCurrentPosition(position => {
-        const { lat, lon } = position.coords;
-        Lat.innerText = lat;
-        Lon.innerText = lon;
-        console.log(lat, lon);
-    });
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    }else{
+        Lat.innerHTML = "Geolocation is not supported by this browser.";
+    }
 };
 
 getLocation();
