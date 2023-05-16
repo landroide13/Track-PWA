@@ -54,8 +54,9 @@ const setData = () =>{
 
         if(getDistanceMt(lt, lo, traLt, traLo) > 0){
             meters.innerHTML = getDistanceMt(lt, lo, traLt, traLo); 
+            console.log("to MTS: " + getDistanceMt(lt, lo, traLt, traLo));
         }else{
-            meters.innerHTML = `Same Position`
+            meters.innerHTML = `Same Position`;
         }
     }
 }
@@ -64,10 +65,11 @@ trackLocation();
 
 getLocation();
 
-setData();
+setInterval(setData(), 1000);
 
 
-console.log("to MTS: " + getDistanceMt(lt, lo, traLt, traLo));
+
+
 
 
 
