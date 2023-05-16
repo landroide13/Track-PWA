@@ -42,24 +42,24 @@ const trackLocation = () =>{
 const setData = () =>{
     if (navigator.geolocation) {
         navigator.geolocation.watchPosition(p => {
-            traLt = p.coords.latitude < 0 ? (-1 * p.coords.latitude) : p.coords.latitude;
+            traLt = p.coords.latitude < 0 ? -p.coords.latitude : p.coords.latitude;
             traLo = p.coords.longitude;
             console.log(traLt, traLo);
         });
         navigator.geolocation.getCurrentPosition(p => {
-            lt = p.coords.latitude < 0 ? (-1 * p.coords.latitude) : p.coords.latitude;
+            lt = p.coords.latitude < 0 ? -p.coords.latitude : p.coords.latitude;
             lo = p.coords.longitude;
             console.log(lt, lo);
         });
+    }
 
-        let dist = setInterval(getDistanceMt(lt, lo, traLt, traLo), 1000);
+    let dist = getDistanceMt(lt, lo, traLt, traLo);
 
-        if(dist >= 0){
-            meters.innerHTML = dist; 
-            console.log("to MTS: " + dist);
-        }else{
-            meters.innerHTML = `Same Position`;
-        }
+    if(dist >= 0){
+        meters.innerHTML = dist; 
+        
+    }else{
+        meters.innerHTML = `Same Position`;
     }
 }
 
@@ -67,7 +67,7 @@ trackLocation();
 
 getLocation();
 
-setData();
+window.setInterval(setData, 1000);
 
 
 
