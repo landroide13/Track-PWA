@@ -8,7 +8,7 @@
         {"src":"/assets/icons/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}
     ],
     "theme_color":"#269EDF",
-    "background_color":"#00e6e6",
+    "background_color":"#269EDF",
     "display":"standalone",
     "orientation": "portrait-primary"
 }

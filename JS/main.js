@@ -1,10 +1,12 @@
-
+import { toMeters } from './functions.js';
 
 const Lat = document.getElementById('Lat');
 const Lon = document.getElementById('Lon');
 
 const traLat = document.getElementById('traLat');
 const traLon = document.getElementById('traLon'); 
+
+const meters = document.getElementById('meters')
 
 const showPosition = (position) => {
     Lat.innerHTML = position.coords.latitude;
@@ -36,7 +38,7 @@ trackLocation();
 
 getLocation();
 
-
+meters.innerHTML = toMeters(Lat, Lon, traLat, traLon); 
 
 
 
