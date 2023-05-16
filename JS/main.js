@@ -8,11 +8,6 @@ const traLon = document.getElementById('traLon');
 
 const meters = document.getElementById('meters');
 
-let lt;
-let lo;
-let traLt;
-let traLo;
-
 const showPosition = (position) => {
     Lat.innerHTML = position.coords.latitude;
     Lon.innerHTML = position.coords.longitude;
@@ -40,7 +35,11 @@ const trackLocation = () =>{
 }
 
 const setData = () =>{
-    
+    let lt;
+    let lo;
+    let traLt;
+    let traLo;
+
     trackLocation();
 
     getLocation();
