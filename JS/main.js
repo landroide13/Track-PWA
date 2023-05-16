@@ -8,6 +8,11 @@ const traLon = document.getElementById('traLon');
 
 const meters = document.getElementById('meters');
 
+let lt;
+let lo;
+let traLt;
+let traLo;
+
 const showPosition = (position) => {
     Lat.innerHTML = position.coords.latitude;
     Lon.innerHTML = position.coords.longitude;
@@ -29,17 +34,13 @@ const getLocation = () => {
 const trackLocation = () =>{
     if (navigator.geolocation) {
         navigator.geolocation.watchPosition(trackPosition);
-      } else {
+    }else{
         Lat.innerHTML = "Geolocation is not supported by this browser.";
-      }
+    }
 }
 
 const setData = () =>{
-    let lt;
-    let lo;
-    let traLt;
-    let traLo;
-
+    
     trackLocation();
 
     getLocation();
@@ -66,8 +67,7 @@ const setData = () =>{
     }
 }
 
-
-window.setInterval(setData, 1000);
+window.setInterval(setData, 900);
 
 
 
