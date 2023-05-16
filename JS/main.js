@@ -40,6 +40,11 @@ const trackLocation = () =>{
 }
 
 const setData = () =>{
+    
+    trackLocation();
+
+    getLocation();
+
     if (navigator.geolocation) {
         navigator.geolocation.watchPosition(p => {
             traLt = p.coords.latitude < 0 ? -p.coords.latitude : p.coords.latitude;
@@ -57,15 +62,11 @@ const setData = () =>{
 
     if(dist >= 0){
         meters.innerHTML = dist; 
-        
     }else{
         meters.innerHTML = `Same Position`;
     }
 }
 
-trackLocation();
-
-getLocation();
 
 window.setInterval(setData, 1000);
 
