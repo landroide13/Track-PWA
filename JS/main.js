@@ -65,7 +65,7 @@ trackLocation();
 
 getLocation();
 
-setInterval(setData(), 1000);
+setData();
 
 
 
