@@ -42,18 +42,18 @@ const trackLocation = () =>{
 const setData = () =>{
     if (navigator.geolocation) {
         navigator.geolocation.watchPosition(p => {
-            traLt = p.coords.latitude < 0 ? -1 * p.coords.latitude : p.coords.latitude;
+            traLt = p.coords.latitude < 0 ? (-1 * p.coords.latitude) : p.coords.latitude;
             traLo = p.coords.longitude;
             console.log(traLt, traLo);
         });
         navigator.geolocation.getCurrentPosition(p => {
-            lt = p.coords.latitude < 0 ? -1 * p.coords.latitude : p.coords.latitude;
+            lt = p.coords.latitude < 0 ? (-1 * p.coords.latitude) : p.coords.latitude;
             lo = p.coords.longitude;
             console.log(lt, lo);
         });
 
         if(getDistanceMt(lt, lo, traLt, traLo) > 0){
-            meters.innerHTML = getDistanceMt(traLt, traLo, lt, lo); 
+            meters.innerHTML = getDistanceMt(lt, lo, traLt, traLo); 
         }else{
             meters.innerHTML = `Same Position`
         }
