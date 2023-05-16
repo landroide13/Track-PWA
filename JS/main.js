@@ -6,7 +6,12 @@ const Lon = document.getElementById('Lon');
 const traLat = document.getElementById('traLat');
 const traLon = document.getElementById('traLon'); 
 
-const meters = document.getElementById('meters')
+const meters = document.getElementById('meters');
+
+let lt;
+let lo;
+let traLt;
+let traLo;
 
 const showPosition = (position) => {
     Lat.innerHTML = position.coords.latitude;
@@ -34,14 +39,33 @@ const trackLocation = () =>{
       }
 }
 
+const setData = () =>{
+    if (navigator.geolocation) {
+        navigator.geolocation.watchPosition(p => {
+            traLt = p.coords.latitude;
+            traLo = p.coords.longitude;
+            console.log(traLt, traLo);
+        });
+        navigator.geolocation.getCurrentPosition(p => {
+            lt = p.coords.latitude;
+            lo = p.coords.longitude;
+            console.log(lt, lo);
+        });
+
+        if(toMeters(lt, lo, traLt, traLo) > 0){
+            meters.innerHTML = toMeters(lt, lo, traLt, traLo); 
+        }else{
+            meters.innerHTML = `Same Position`
+        }
+        console.log("to mts: " + toMeters(lt, lo, traLt, traLo));
+    }
+}
+
 trackLocation();
 
 getLocation();
 
-meters.innerHTML = toMeters(Lat, Lon, traLat, traLon); 
-
-
-
+setData();
 
 
 
