@@ -28,13 +28,24 @@ export const getDistanceMt = (lat1,lon1,lat2,lon2) => {
     var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
     var d = R * c; // Distance in km
     return d * 1000; // Meters
-  }
+}
   
-  const deg2rad = (deg) => {
+const deg2rad = (deg) => {
     return deg * (Math.PI/180)
-  }
+}
 
 
+//Register Service Worker..
+export const register = () =>{
+    if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function() {
+          navigator.serviceWorker
+            .register("/ServiceWorker.js")
+            .then(res => console.log("service worker registered", res))
+            .catch(err => console.log("service worker not registered", err))
+        })
+    }
+}  
 
 
 

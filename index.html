@@ -16,27 +16,38 @@
 <body>
 
     <header class="mt-5">
-        <h1 class="text-center">Tracking App</h1>
-
+        <h1 class="text-center">Tracking PWA App</h1>
     </header>
 
     <main class="container">
 
         <div class="container">
-            <h4>Initial Latitud: <span id="Lat" class="badge bg-primary"></span></h4>
-
-            <h4>Initial Longitud: <span id="Lon" class="badge bg-primary"></span></h4>
+            <div class="card">
+                <div class="card-body">
+                    <h4>Initial Latitud: <span id="Lat" class="badge bg-primary"></span></h4>
+                    <h4>Initial Longitud: <span id="Lon" class="badge bg-primary"></span></h4>
+                    <a href="#" id="save" class="btn btn-primary">Save Place</a>
+                </div>
+            </div>     
         </div>
 
         <div class="container">
 
-            <h4> Latitud: <span id="traLat" class="badge bg-secondary"></span></h4>
+            <div class="card">
+                <div class="card-body">
+                    <h4> Latitud: <span id="traLat" class="badge bg-secondary"></span></h4>
 
-            <h4> Longitud: <span id="traLon" class="badge bg-secondary"></span></h4>
+                    <h4> Longitud: <span id="traLon" class="badge bg-secondary"></span></h4>
+                </div>
+            </div>        
         </div>
 
         <div class="container">
-            <h4>Meters: <span id="meters" class="badge bg-secondary"></span> </h4>
+            <div class="card">
+                <div class="card-body">
+                    <h4>Meters: <span id="meters" class="badge bg-secondary"></span> </h4>
+                </div>
+            </div>        
         </div>
 
 
@@ -47,21 +58,21 @@
         <ul class="nav justify-content-center">
             <li class="nav-item">
               <a class="nav-link link-light" aria-current="page" href="#">
-                <i class="bi bi-arrows-move" style="font-size: 1.5rem; color: rgb(232, 235, 240);"></i>
+                <i class="bi bi-arrows-move" style="font-size: 1.5rem; color: rgb(232, 235, 240); font-weight: bold;"></i>
             </a>
             </li>
             <li class="nav-item">
               <a class="nav-link link-light" href="#">
-                <i class="bi bi-activity" style="font-size: 1.5rem; color: rgb(232, 235, 240);"></i>
+                <i class="bi bi-activity" style="font-size: 1.5rem; color: rgb(232, 235, 240); font-weight: bold;"></i>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link link-light" href="#">
-                <i class="bi bi-tools" style="font-size: 1.5rem; color: rgb(232, 235, 240);"></i>
+                <i class="bi bi-tools" style="font-size: 1.5rem; color: rgb(232, 235, 240); font-weight: bold;"></i>
               </a>
             </li>
            
-          </ul>
+        </ul>
     </footer>
     
     <script src="/JS/bootstrap.min.js"></script>

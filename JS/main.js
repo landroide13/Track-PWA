@@ -1,4 +1,4 @@
-import { toMeters, getDistanceMt } from './functions.js';
+import { toMeters, getDistanceMt, register } from './functions.js';
 
 const Lat = document.getElementById('Lat');
 const Lon = document.getElementById('Lon');
@@ -70,7 +70,8 @@ const setData = () =>{
 window.setInterval(setData, 900);
 
 
-
+//Register SW
+register();
 
 
 
