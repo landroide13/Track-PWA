@@ -53,8 +53,6 @@ const setData = () =>{
     
     trackLocation();
 
-    getLocation();
-
     let lt = Number(Lat.innerHTML.valueOf()) < 0 ? - Number(Lat.innerHTML.valueOf()) :  Number(Lat.innerHTML.valueOf());
     let lo = Number(Lon.innerHTML.valueOf());
     let traLt = Number(traLat.innerHTML.valueOf()) < 0 ? -Number(traLat.innerHTML.valueOf()) : Number(traLat.innerHTML.valueOf());
@@ -70,11 +68,15 @@ const setData = () =>{
    
 }
 
+window.setTimeout(getLocation, 100);
+
 window.setInterval(setData, 900);
 
 // Firebase Functions
 
 save.addEventListener("click", () => {
+
+    getLocation();
 
     const inputLoc = {
         latitud: Number(Lat.innerHTML.valueOf()) < 0 ? -Number(Lat.innerHTML.valueOf()) : Number(Lat.innerHTML.valueOf()),
