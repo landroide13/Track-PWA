@@ -5,6 +5,9 @@ const appSettings = {
     databaseURL: "https://cat-base-default-rtdb.asia-southeast1.firebasedatabase.app/"
 }
 
+
+const save = document.getElementById('save');
+
 const app = initializeApp(appSettings);
 const database = getDatabase(app);
 const trackAppDB = ref(database, "trackApp");
