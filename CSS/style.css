@@ -1,8 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
 :root{
     --orange: #F0A049;
     --yellow: #F0EE66;
 }
 
+body{
+    font-family: 'Inter', sans-serif;
+}
 
 footer{ 
     background-color: #269EDF;

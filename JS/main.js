@@ -8,6 +8,8 @@ const traLon = document.getElementById('traLon');
 
 const meters = document.getElementById('meters');
 
+const save = document.getElementById('save');
+
 let lt;
 let lo;
 let traLt;
