@@ -52,19 +52,6 @@ const trackLocation = () =>{
 const setData = () =>{
     
     trackLocation();
-
-    let lt = Number(Lat.innerHTML.valueOf()) < 0 ? - Number(Lat.innerHTML.valueOf()) :  Number(Lat.innerHTML.valueOf());
-    let lo = Number(Lon.innerHTML.valueOf());
-    let traLt = Number(traLat.innerHTML.valueOf()) < 0 ? -Number(traLat.innerHTML.valueOf()) : Number(traLat.innerHTML.valueOf());
-    let traLo = Number(traLon.innerHTML.valueOf());
-
-    let dist = getDistanceMt(lt, lo, traLt, traLo);
-
-    if(dist >= 0){
-        meters.innerHTML = dist; 
-    }else{
-        meters.innerHTML = `Same Position`;
-    }    
    
 }
 
@@ -85,6 +72,23 @@ save.addEventListener("click", () => {
 
     push(trackAppDB, inputLoc);
 });
+
+getLoc.addEventListener('click', () =>{
+
+    let lt = Number(Lat.innerHTML.valueOf()) < 0 ? -Number(Lat.innerHTML.valueOf()) :  Number(Lat.innerHTML.valueOf());
+    let lo = Number(Lon.innerHTML.valueOf());
+    let traLt = Number(traLat.innerHTML.valueOf()) < 0 ? -Number(traLat.innerHTML.valueOf()) : Number(traLat.innerHTML.valueOf());
+    let traLo = Number(traLon.innerHTML.valueOf());
+
+    let dist = getDistanceMt(lt, lo, traLt, traLo);
+
+    if(dist >= 0){
+        meters.innerHTML = dist; 
+    }else{
+        meters.innerHTML = `Same Position`;
+    }    
+
+})
 
 
 onValue(trackAppDB, (snapshot) => {
