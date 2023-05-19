@@ -87,7 +87,6 @@ getLoc.addEventListener('click', () =>{
     }else{
         meters.innerHTML = `Same Position`;
     }    
-
 })
 
 
