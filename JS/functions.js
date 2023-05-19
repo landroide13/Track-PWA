@@ -48,7 +48,10 @@ export const register = () =>{
 }  
 
 
-
+// Clear Input
+export const cleanInput = () => {
+    input.value = ""
+};
 
 
 
