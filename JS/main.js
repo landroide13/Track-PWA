@@ -22,10 +22,6 @@ const traLon = document.getElementById('traLon');
 
 const meters = document.getElementById('meters');
 
-let lt;
-let lo;
-let traLt;
-let traLo;
 
 const showPosition = (position) => {
     Lat.innerHTML = position.coords.latitude;
@@ -59,38 +55,18 @@ const setData = () =>{
 
     getLocation();
 
-    if (navigator.geolocation) {
-        navigator.geolocation.watchPosition(p => {
-            traLt = p.coords.latitude < 0 ? -p.coords.latitude : p.coords.latitude;
-            traLo = p.coords.longitude;
-            console.log(traLt, traLo);
-        });
-    }
+    let lt = Number(Lat.innerHTML.valueOf()) < 0 ? - Number(Lat.innerHTML.valueOf()) :  Number(Lat.innerHTML.valueOf());
+    let lo = Number(Lon.innerHTML.valueOf());
+    let traLt = Number(traLat.innerHTML.valueOf()) < 0 ? -Number(traLat.innerHTML.valueOf()) : Number(traLat.innerHTML.valueOf());
+    let traLo = Number(traLon.innerHTML.valueOf());
 
-    onValue(trackAppDB, (snapshot) => {
+    let dist = getDistanceMt(lt, lo, traLt, traLo);
 
-        if(snapshot.exists()){
-            let items = Object.entries(snapshot.val());
-            
-            for(let i = 0; i < items.length; i++){
-                let currentItem = items[i];
-                let currentId = currentItem[0];
-                let currentLoc = currentItem[1];
-                //addItem(currentItem);
-                //console.log(currentLoc)
-
-                let dist = getDistanceMt(currentLoc.latitud, currentLoc.longitud, traLt, traLo);
-
-                if(dist >= 0){
-                    meters.innerHTML = dist; 
-                }else{
-                    meters.innerHTML = `Same Position`;
-                }
-            }
-        }else{
-            meters.innerHTML = "No items here..yet";
-        }
-    });
+    if(dist >= 0){
+        meters.innerHTML = dist; 
+    }else{
+        meters.innerHTML = `Same Position`;
+    }    
    
 }
 
@@ -100,21 +76,15 @@ window.setInterval(setData, 900);
 
 save.addEventListener("click", () => {
 
-    navigator.geolocation.getCurrentPosition(p => {
-        lt = p.coords.latitude < 0 ? -p.coords.latitude : p.coords.latitude;
-        lo = p.coords.longitude;
-        console.log(lt, lo);
-    });
-
-    let inputLoc = {
-        latitud: lt,
-        longitud: lo
+    const inputLoc = {
+        latitud: Number(Lat.innerHTML.valueOf()) < 0 ? -Number(Lat.innerHTML.valueOf()) : Number(Lat.innerHTML.valueOf()),
+        longitud: Number(Lon.innerHTML.valueOf())
     }
 
     push(trackAppDB, inputLoc);
 });
 
-/*
+
 onValue(trackAppDB, (snapshot) => {
 
     if(snapshot.exists()){
@@ -131,6 +101,8 @@ onValue(trackAppDB, (snapshot) => {
         meters.innerHTML = "No items here..yet";
     }
 });
+
+/*
 
 const addItem = item => {
 
