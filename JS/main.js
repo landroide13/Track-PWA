@@ -16,6 +16,7 @@ const trackAppDB = ref(database, "trackApp");
 
 const Lat = document.getElementById('Lat');
 const Lon = document.getElementById('Lon');
+const nameLoc = document.getElementById('nameLoc');
 
 const traLat = document.getElementById('traLat');
 const traLon = document.getElementById('traLon'); 
@@ -52,7 +53,6 @@ const trackLocation = () =>{
 const setData = () =>{
     
     trackLocation();
-   
 }
 
 window.setTimeout(getLocation, 100);
@@ -65,9 +65,15 @@ save.addEventListener("click", () => {
 
     getLocation();
 
+    const d = new Date();
+
+    //console.log(nameLoc.value);
+
     const inputLoc = {
+        name: nameLoc.value,
         latitud: Number(Lat.innerHTML.valueOf()) < 0 ? -Number(Lat.innerHTML.valueOf()) : Number(Lat.innerHTML.valueOf()),
-        longitud: Number(Lon.innerHTML.valueOf())
+        longitud: Number(Lon.innerHTML.valueOf()),
+        date: d.toDateString()
     }
 
     push(trackAppDB, inputLoc);
@@ -103,7 +109,7 @@ onValue(trackAppDB, (snapshot) => {
             console.log(currentLoc)
         }
     }else{
-        meters.innerHTML = "No items here..yet";
+        meters.innerHTML = "Same Position";
     }
 });
 

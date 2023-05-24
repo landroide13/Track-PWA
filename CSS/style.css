@@ -13,6 +13,10 @@ footer{
     background-color: #269EDF;
 }
 
+.inputs{
+    display: flex;
+    flex-direction: row;
+}
 
 
 
