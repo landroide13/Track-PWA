@@ -74,7 +74,9 @@ save.addEventListener("click", () => {
         latitud: Number(Lat.innerHTML.valueOf()) < 0 ? -Number(Lat.innerHTML.valueOf()) : Number(Lat.innerHTML.valueOf()),
         longitud: Number(Lon.innerHTML.valueOf()),
         date: d.toDateString()
-    }
+    };
+
+    nameLoc.value = "";
 
     push(trackAppDB, inputLoc);
 });
