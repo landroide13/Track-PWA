@@ -8,7 +8,7 @@ const appSettings = {
 }
 
 const save = document.getElementById('save');
-const getLoc = document.getElementById('getLoc')
+const getLoc = document.getElementById('getLoc');
 
 const app = initializeApp(appSettings);
 const database = getDatabase(app);
@@ -66,8 +66,6 @@ save.addEventListener("click", () => {
     getLocation();
 
     const d = new Date();
-
-    //console.log(nameLoc.value);
 
     const inputLoc = {
         name: nameLoc.value,
